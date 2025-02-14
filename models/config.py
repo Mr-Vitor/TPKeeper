@@ -1,12 +1,9 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey
 from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 class Mestre(db.Model):
     __tablename__ = 'mestres'
@@ -48,6 +45,14 @@ class Dado(db.Model):
     
     campanha: Mapped["Campanha"] = relationship("Campanha", back_populates="dados")
 
-with app.app_context():
-    db.create_all()
+def init_db(app):
+    app.config['SECRET_KEY'] = "superdificil2"
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    db.init_app(app)
+
+    with app.app_context():
+        db.create_all()
+
+
 
