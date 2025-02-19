@@ -2,10 +2,11 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 
 db = SQLAlchemy()
 
-class Mestre(db.Model):
+class Mestre(db.Model, UserMixin):
     __tablename__ = 'mestres'
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
     nome: Mapped[str] = mapped_column(db.String(100), nullable=False)
