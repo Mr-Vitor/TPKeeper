@@ -1,10 +1,13 @@
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship, DeclarativeBase
 from sqlalchemy import ForeignKey
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 
-db = SQLAlchemy()
+class Base(DeclarativeBase):
+    pass
+
+db = SQLAlchemy(model_class=Base)
 
 class Mestre(db.Model, UserMixin):
     __tablename__ = 'mestres'
@@ -20,6 +23,7 @@ class Campanha(db.Model):
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
     mestre_id: Mapped[int] = mapped_column(db.Integer, ForeignKey('mestres.id'), nullable=False)
     nome: Mapped[str] = mapped_column(db.String(150), nullable=False)
+    desc: Mapped[str] = mapped_column(db.String(1000), nullable=False)
     data_criacao: Mapped[datetime] = mapped_column(db.DateTime, default=datetime.utcnow)
     
     mestre: Mapped["Mestre"] = relationship("Mestre", back_populates="campanhas")

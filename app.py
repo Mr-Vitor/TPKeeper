@@ -12,6 +12,10 @@ init_db(app)
 app.register_blueprint(Mestre_bp)
 app.register_blueprint(Campanha_bp)
 
+login_manager.login_view = "Mestre.login"
+login_manager.login_message = "Você precisa fazer login para acessar esta página."
+login_manager.login_message_category = "warning" 
+
 @login_manager.user_loader
 def load_user(user_id):
     return Mestre.get(user_id)
