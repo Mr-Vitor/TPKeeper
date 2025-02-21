@@ -1,8 +1,9 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship, DeclarativeBase
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, LargeBinary
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+
 
 class Base(DeclarativeBase):
     pass
@@ -23,8 +24,10 @@ class Campanha(db.Model):
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
     mestre_id: Mapped[int] = mapped_column(db.Integer, ForeignKey('mestres.id'), nullable=False)
     nome: Mapped[str] = mapped_column(db.String(150), nullable=False)
-    desc: Mapped[str] = mapped_column(db.String(1000), nullable=False)
+    desc: Mapped[str] = mapped_column(db.String(1000))
     data_criacao: Mapped[datetime] = mapped_column(db.DateTime, default=datetime.utcnow)
+    imagem: Mapped[LargeBinary] = mapped_column(db.LargeBinary)
+    imagem_nome: Mapped[str] = mapped_column(db.String(150))
     
     mestre: Mapped["Mestre"] = relationship("Mestre", back_populates="campanhas")
     anotacoes: Mapped[list["Anotacao"]] = relationship("Anotacao", back_populates="campanha", cascade="all, delete")
