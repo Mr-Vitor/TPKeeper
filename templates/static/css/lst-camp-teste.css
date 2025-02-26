@@ -1,0 +1,193 @@
+/* Configuração Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #111;
+    position: relative;
+}
+
+/* Linha Laranja abaixo da navbar */
+.navbar::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: orange;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+}
+
+/* Centralização correta dos botões */
+.nav-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 170px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.nav-links .active {
+    color: orange;
+}
+
+.nav-links a:hover {
+    color: orange;
+}
+
+.perfil img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Botão Criar Nova Campanha */
+#btn-nova-campanha {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#btn-nova-campanha:hover {
+    background-color: #ff8c00;
+}
+
+/* Linha Laranja abaixo do botão */
+.btn-container {
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.btn-container::after {
+    content: "";
+    display: block;
+    width: 50%;  /* Ajuste para ficar proporcional ao botão */
+    height: 3px;
+    background-color: orange;
+    margin: 10px auto 0;
+}
+
+/* Container de Campanhas */
+.campanhas-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Estilização das Campanhas */
+.campanha {
+    display: flex;
+    position: relative;
+    width: 350px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Imagem da Campanha */
+.campanha .campanha-imagem {
+    flex: 1;
+}
+
+.campanha .campanha-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Conteúdo da Campanha */
+.campanha-conteudo {
+    flex: 2;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Título */
+.campanha h3 {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+/* Data */
+.campanha p {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+/* Botões */
+.campanha .botoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botão Acessar */
+.btn-acessar {
+    background-color: orange;
+    color: whitesmoke;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-acessar:hover {
+    background-color: #ff8c00;
+}
+
+.btn-deletar {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 10%;
+    font-size: 14px;
+}
+
+.btn-deletar:hover {
+    background: darkred;
+}
