@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanhas</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #222;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ff6600;
+        }
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .navbar a.active {
+            color: #ff6600;
+        }
+        .profile {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .container {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        .button {
+            background-color: #ff6600;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .form-container {
+            background-color: #3a3a3a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            width: 400px;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #666;
+            border: none;
+            color: white;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .cancel {
+            background-color: #ccc;
+            color: black;
+        }
+        .save {
+            background-color: #ff6600;
+            color: white;
+        }
+        .upload-box {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            background-color: #333;
+            text-align: center;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .upload-box input {
+            display: none;
+        }
+        .upload-box label {
+            display: block;
+            padding: 10px;
+            background-color: #444;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <a href="#">TP Keeper</a>
+        </div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#" class="active">Campanhas</a>
+        </div>
+        <div class="profile">
+            <img src="profile.jpg" alt="Perfil">
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button">Anotações</button>
+        <button class="button">Dados</button>
+        <button class="button">Editar Campanha</button>
+    </div>
+    <div class="container">
+        <div class="upload-box">
+            <label for="upload">Arraste e solte ou faça upload</label>
+            <input type="file" id="upload">
+        </div>
+        <div class="form-container">
+            <label for="nome">Nome da campanha:</label>
+            <input type="text" id="nome" placeholder="Nome da campanha">
+            
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" placeholder="Descrição da campanha"></textarea>
+            
+            <button class="cancel">Cancelar</button>
+            <button class="save">Salvar</button>
+        </div>
+    </div>
+</body>
+</html>
