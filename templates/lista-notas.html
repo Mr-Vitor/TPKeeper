@@ -3,39 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campanhas - Notas</title>
+    <title>Notas - TPKeeper</title>
     <link rel="stylesheet" href="static/css/lst-nota-teste.css">
-    <script src="static/js/lst-nota-teste.js"></script>
+    <script defer src="static/js/lst-nota-teste.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo TP Keeper">
+    <nav class="navbar">
+        <div class="logo"> 
+            <img src="logo.png" alt="TPKeeper"> 
         </div>
-        <nav>
-            <a href="#" class="nav-link active">Home</a>
-            <a href="#" class="nav-link">Campanhas</a>
-        </nav>
-        <div class="profile">
-            <img src="profile.png" alt="Usuário">
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#" class="active">Campanhas</a></li>
+        </ul>
+        <div class="perfil">
+            <img src="perfil.png" alt="Perfil">
         </div>
-    </header>
-
-    <div class="nav-buttons">
-        <button class="nav-btn active">Anotações</button>
-        <button class="nav-btn">Dados</button>
-        <button class="nav-btn">Editar Campanha</button>
-    </div>
+    </nav>
 
     <main>
-        <div id="notes-container">
-            <!-- Notas aparecerão aqui -->
+        <!-- Botões do topo -->
+        <div class="btn-container">
+            <div class="buttons">
+                <button class="tab active">Anotações</button>
+                <button class="tab">Dados</button>
+                <button class="tab">Editar Campanha</button>
+            </div>
         </div>
-    </main>
 
-    <button id="add-note-btn">+</button>
+        <section class="notes-container">
+            <div class="note">
+                <div class="note-text">
+                    <h3>Título da nota</h3>
+                    <p>Data de criação: dd/mm/aaaa</p>
+                </div>
+                <div class="note-buttons">
+                    <button class="view">Visualizar nota</button>
+                    <button class="edit">Editar nota</button>
+                </div>
+            </div>
+        
+            <div class="note">
+                <div class="note-text">
+                    <h3>Título da nota</h3>
+                    <p>Data de criação: dd/mm/aaaa</p>
+                </div>
+                <div class="note-buttons">
+                    <button class="view">Visualizar nota</button>
+                    <button class="edit">Editar nota</button>
+                </div>
+            </div>
 
+            <div class="note">
+                <div class="note-text">
+                    <h3>Título da nota</h3>
+                    <p>Data de criação: dd/mm/aaaa</p>
+                </div>
+                <div class="note-buttons">
+                    <button class="view">Visualizar nota</button>
+                    <button class="edit">Editar nota</button>
+                </div>
+            </div>
+
+            <div class="note">
+                <div class="note-text">
+                    <h3>Título da nota</h3>
+                    <p>Data de criação: dd/mm/aaaa</p>
+                </div>
+                <div class="note-buttons">
+                    <button class="view">Visualizar nota</button>
+                    <button class="edit">Editar nota</button>
+                </div>
+            </div>
+        
+            <!-- Botão de adicionar dentro do grid -->
+             <div class="container-button">
+                <button class="add-note">+</button>
+             </div>
+
+        </section>
+    </main>        
 </body>
 </html>
-
-
