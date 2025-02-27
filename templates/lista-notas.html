@@ -1,4 +1,4 @@
-{ extends 'base.html'}
+{% extends 'base.html' %}
 
 {% block title %}Notas - TPKeeper{% endblock %}
 
@@ -20,6 +20,7 @@
             </div>
         </div>
 
+        <!-- Exemplo de como a nota tem que ficar -->
         <section class="notes-container">
             <div class="note">
                 <div class="note-text">
@@ -33,41 +34,6 @@
                 </div>
             </div>
         
-            <div class="note">
-                <button class="delete-btn">🗑</button>
-                <div class="note-text">
-                    <h3>Título da nota</h3>
-                    <p>Data de criação: dd/mm/aaaa</p>
-                </div>
-                <div class="note-buttons">
-                    <button class="view">Visualizar nota</button>
-                    <button class="edit">Editar nota</button>
-                </div>
-            </div>
-
-            <div class="note">
-                <button class="delete-btn">🗑</button>
-                <div class="note-text">
-                    <h3>Título da nota</h3>
-                    <p>Data de criação: dd/mm/aaaa</p>
-                </div>
-                <div class="note-buttons">
-                    <button class="view">Visualizar nota</button>
-                    <button class="edit">Editar nota</button>
-                </div>
-            </div>
-
-            <div class="note">
-                <button class="delete-btn">🗑</button>
-                <div class="note-text">
-                    <h3>Título da nota</h3>
-                    <p>Data de criação: dd/mm/aaaa</p>
-                </div>
-                <div class="note-buttons">
-                    <button class="view">Visualizar nota</button>
-                    <button class="edit">Editar nota</button>
-                </div>
-            </div>
         
             <!-- Botão de adicionar dentro do grid -->
              <div class="container-button">

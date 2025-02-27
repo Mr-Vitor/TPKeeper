@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-</head>
-<body>
-    <div class="menu">
-        <img src="logo.png" alt="Logo" class="logo">
-        <a href="#">Home</a>
-        <a href="#" class="active">Campanhas</a>
-        <img src="user-avatar.png" alt="User Avatar" width="40" height="40" style="border-radius: 50%;">
+{% extends 'base.html' %}
+
+{% block title %}Novo dado{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static/css', filename='criar-dados.css') }}">
+{% endblock %}
+    
+{% block content %}
+    <div class="btn-container">
+        <div class="buttons">
+            <button class="tab active">Anotações</button>
+            <button class="tab">Dados</button>
+            <button class="tab">Editar Campanha</button>
+        </div>
     </div>
     <div class="container">
         <label for="nome">Nome do dado:</label>
@@ -19,10 +21,9 @@
         <label for="faces">Nº de faces:</label>
         <input type="number" id="faces" name="faces" min="1" max="100" value="0">
         
-        <div class="buttons">
+        <div class="button">
             <button class="btn cancel">Cancelar</button>
             <button class="btn save">Salvar</button>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

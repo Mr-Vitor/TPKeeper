@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar nota</title>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="TPKeeper">
-        </div>
-        <div class="links">
-            <a href="#">Home</a>
-            <a href="#">Campanhas</a>
-        </div>
-        <div class="user-avatar">
-            <img src="user-avatar.png" alt="Usuário">
+{% extends 'base.html' %}
+
+{% block title %}Editar nota{% endblock %}
+ 
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static/css', filename='editar-notas.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="btn-container">
+        <div class="buttons">
+            <button class="tab active">Anotações</button>
+            <button class="tab">Dados</button>
+            <button class="tab">Editar Campanha</button>
         </div>
     </div>
-
     <div class="criar-notas-container">
         <div class="input-group">
             <label for="titulo">Título da nota:</label>
@@ -33,5 +28,4 @@
             <button class="salvar-btn">Salvar</button>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

@@ -1,28 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campanhas</title>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="Logo">
-            <a href="#">TP Keeper</a>
+{% extends 'base.html' %}
+
+{% block title %}Campanhas {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static/css', filename='editar-campanha.css') }}">
+{% endfor %}
+
+{% block content %}
+    <div class="btn-container">
+        <div class="buttons">
+            <button class="tab active">Anotações</button>
+            <button class="tab">Dados</button>
+            <button class="tab">Editar Campanha</button>
         </div>
-        <div class="menu">
-            <a href="#">Home</a>
-            <a href="#" class="active">Campanhas</a>
-        </div>
-        <div class="profile">
-            <img src="profile.jpg" alt="Perfil">
-        </div>
-    </div>
-    <div class="buttons">
-        <button class="button">Anotações</button>
-        <button class="button">Dados</button>
-        <button class="button">Editar Campanha</button>
     </div>
     <div class="container">
         <div class="upload-box">
@@ -40,5 +30,4 @@
             <button class="save">Salvar</button>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

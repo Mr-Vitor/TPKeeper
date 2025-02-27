@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="TPKeeper">
-        </div>
-        <div class="links">
-            <a href="#">Home</a>
-            <a href="#">Campanhas</a>
-        </div>
-        <div class="user-avatar">
-            <img src="user-avatar.png" alt="Usuário">
-        </div>
-    </div>
+{% extends 'base.html' %}
 
+{% block title %}Login{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static/css', filename='login.css') }}">
+{% endblock %}
+
+{% block content %}
     <div class="login-container">
         <img src="user-icon.png" alt="User">
         <h2>Login</h2>
@@ -33,6 +21,5 @@
         <button class="login-btn">Login</button>
         <p class="register-link">Não tem uma conta? <a href="#">Clique aqui</a></p>
     </div>
-</body>
-</html>
+{% endblock %}
 

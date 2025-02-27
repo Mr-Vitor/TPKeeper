@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
-    <title>Cadastro</title>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="TPKeeper">
-        </div>
-        <div class="links">
-            <a href="#">Home</a>
-            <a href="#">Campanhas</a>
-        </div>
-        <div class="user-avatar">
-            <img src="user-avatar.png" alt="Usuário">
-        </div>
-    </div>
+{% extends 'base.html' %}
 
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static/css', filename='cadastro.css') }}">
+{% endblock %}
+
+{% block title %}Cadastro{% endblock %}
+
+{% block content %}
     <div class="cadastro-container">
         <img src="user-icon.png" alt="User">
         <h2>Cadastro</h2>
@@ -42,5 +29,4 @@
         <button class="cadastro-btn">Cadastrar</button>
         <p class="login-link">Já tem uma conta? <a href="#">Clique aqui</a></p>
     </div>
-</body>
-</html>
+{% endblock %}
