@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Keeper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 30px;
+            border-bottom: 3px solid orange;
+        }
+        .navbar a {
+            color: orange;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+        .carousel img:not(:first-child) {
+            opacity: 0;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"> <strong>TP Keeper</strong> </div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#campanhas">Campanhas</a>
+        </div>
+    </nav>
+    <section class="carousel">
+        <img src="carrossel1.png" alt="Aventura Fantástica">
+        <img src="carrossel1.png" alt="Exploração Mágica">
+        <img src="carrossel1.png" alt="Missão Épica">
+        <div class="carousel-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll(".carousel img");
+        
+        function showSlide(n) {
+            slides.forEach((img, i) => {
+                img.style.opacity = i === n ? "1" : "0";
+            });
+        }
+        
+        function nextSlide() {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        }
+        
+        function prevSlide() {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide(index);
+        }
+        
+        setInterval(nextSlide, 10000);
+    </script>
+</body>
+</html>
