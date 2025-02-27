@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+        :root {
+            --laranja-linha: #ff914d;
+            --laranja-titulo: #ff961b;
+            --laranja-button: #f97625;
+            --fundo: #232323;
+            --container: #616060;
+            --input: #535151;
+            --placeholder: #bfbdbc;
+            --button-hover: rgb(255, 128, 10);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: "Garamond";
         }
 
         body {
-            background-color: #1e1e1e;
+            background-color: var(--fundo);
             color: white;
         }
 
@@ -21,9 +34,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #222;
+            background-color: var(--fundo);
             padding: 15px;
-            border-bottom: 3px solid #f97625;
+            border-bottom: 3px solid var(--laranja-linha);
         }
 
         .navbar .logo img {
@@ -34,7 +47,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: 2px solid #f97625;
+            border: 2px solid var(--laranja-linha);
         }
 
         .navbar .links {
@@ -51,7 +64,7 @@
 
         .login-container {
             width: 400px;
-            background-color: #555;
+            background-color: var(--container);
             padding: 40px;
             border-radius: 15px;
             margin: 100px auto;
@@ -66,7 +79,7 @@
         }
 
         .login-container h2 {
-            color: #f97625;
+            color: var(--laranja-titulo);
             margin-bottom: 20px;
         }
 
@@ -86,7 +99,7 @@
             padding: 10px;
             border: none;
             border-radius: 10px;
-            background-color: #444;
+            background-color: var(--input);
             color: white;
             font-size: 16px;
         }
@@ -94,13 +107,14 @@
         .login-btn {
             width: 100%;
             padding: 10px;
-            background-color: #f97625;
+            background-color: var(--laranja-button);
             border: none;
             border-radius: 10px;
             color: white;
             font-size: 18px;
             cursor: pointer;
             margin-top: 15px;
+            transition:300ms;
         }
 
         .register-link {
@@ -109,9 +123,18 @@
         }
 
         .register-link a {
-            color: #f97625;
-            text-decoration: none;
+            color: var(--laranja-button);
+            transition:300ms;
         }
+
+        .login-btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        .register-link a:hover {
+            color: var(--button-hover);
+        }
+
     </style>
 </head>
 <body>
