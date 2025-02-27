@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notas - TPKeeper</title>
-    <link rel="stylesheet" href="static/css/lst-nota-teste.css">
-    <script defer src="static/js/lst-nota-teste.js"></script>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo"> 
-            <img src="logo.png" alt="TPKeeper"> 
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#" class="active">Campanhas</a></li>
-        </ul>
-        <div class="perfil">
-            <img src="perfil.png" alt="Perfil">
-        </div>
-    </nav>
+{ extends 'base.html'}
 
+{% block title %}Notas - TPKeeper{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='lst-nota.css') }}">
+{% endblock %}
+{% block javascript%}
+    <script defer src="static/js/lst-nota-teste.js"></script>
+{% endblock %}
+
+{% block content %}
     <main>
         <!-- Botões do topo -->
         <div class="btn-container">
@@ -86,6 +75,6 @@
              </div>
 
         </section>
-    </main>        
-</body>
-</html>
+    </main> 
+{% endblock %}    
+

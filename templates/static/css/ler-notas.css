@@ -1,0 +1,56 @@
+/**/
+
+.botao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:4px;
+    margin-top: 10px;
+}
+
+.voltar-btn {
+    width: 10rem;
+    padding: 10px;
+    background-color: #f97625;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.ler-notas-container {
+    width: 700px;
+    background-color: #555;
+    padding: 40px;
+    border-radius: 15px;
+    margin: 35px auto;
+    text-align: center;
+}
+
+.label-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.label-group label {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    resize: none;
+    overflow-y: hidden;
+}
+
+.titulo::placeholder {
+    font-size: 2rem;
+}
+
+.conteudo {
+    height: 500px;
+}

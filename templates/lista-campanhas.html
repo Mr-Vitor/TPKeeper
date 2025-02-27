@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campanhas - TPKeeper</title>
-    <link rel="stylesheet" href="static/css/lst-camp-teste.css">
-    <script defer src="static/js/lst-camp-teste.js"></script>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo"> 
-            <img src="logo.png" alt="TPKeeper"> 
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#" class="active">Campanhas</a></li>
-        </ul>
-        <div class="perfil">
-            <img src="perfil.png" alt="Perfil">
-        </div>
-    </nav>
+{% extends 'base.html' %}
 
-    <main class="container">
-        <div class="btn-container">
-            <button id="btn-nova-campanha">Criar nova campanha</button>
-        </div>        
-        
-        <div class="campanhas-container" id="campanhas">
-            <!-- As campanhas serão carregadas aqui -->
-        </div>
-    </main>
-</body>
-</html>
+{% block title%}Campanhas - TPKeeper{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='lst-camp.css') }}">
+{% endblock %}
+{% block javascript %}
+<script defer src="static/js/lst-camp-teste.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<main class="container">
+    <div class="btn-container">
+        <button id="btn-nova-campanha">Criar nova campanha</button>
+    </div>        
+    
+    <div class="campanhas-container" id="campanhas">
+        <!-- As campanhas serão carregadas aqui -->
+    </div>
+</main>
+{% endblock %}
+

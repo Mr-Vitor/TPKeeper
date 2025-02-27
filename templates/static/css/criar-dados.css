@@ -1,0 +1,44 @@
+/**/
+
+.container {
+    background: #333;
+    padding: 20px;
+    border-radius: 15px;
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #444;
+    color: white;
+    font-size: 16px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.cancel {
+    background: #bbb;
+    color: black;
+}
+.save {
+    background: #ff6600;
+    color: white;
+}
