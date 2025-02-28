@@ -7,17 +7,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="btn-container">
-        <div class="buttons">
-            <button class="tab">Anotações</button>
-            <button class="tab">Dados</button>
-            <button class="tab">Editar Campanha</button>
-        </div>
-    </div>
     <div class="container">
         <form action="{{ url_for('Campanha.criar' ) }}" method="post"enctype="multipart/form-data">
             <div class="upload-box">
-                <label for="upload">Arraste e solte ou faça upload</label>
+                <label for="upload">Clique aqui para fazer upload</label>
                 <input type="file" id="upload" name="imagem">
             </div>
             <div class="form-container">
@@ -26,9 +19,10 @@
                 
                 <label for="descricao">Descrição:</label>
                 <textarea id="descricao" placeholder="Descrição da campanha" name="desc"></textarea>
-                
-                <a href="{{ url_for('Campanha.campanha' ) }}"><button class="cancel">Cancelar</button></a>
-                <button class="save">Salvar</button>
+                <div id="buttons">    
+                    <a href="{{ url_for('Campanha.campanha' ) }}"><button class="cancel">Cancelar</button></a>
+                    <button class="save">Salvar</button>
+                </div>    
             </div>
         </form>
     </div>
