@@ -8,14 +8,25 @@
     
     {% block content %}
     <section class="carousel">
-        <img src="carrossel1.png" alt="Aventura Fantástica">
-        <img src="carrossel1.png" alt="Exploração Mágica">
-        <img src="carrossel1.png" alt="Missão Épica">
+        <img src="icon/carrossel1.png" alt="Aventura Fantástica">
+        <img src="icon/carrossel1.png" alt="Exploração Mágica">
+        <img src="icon/carrossel1.png" alt="Missão Épica">
         <div class="carousel-buttons">
             <button onclick="prevSlide()">&#10094;</button>
             <button onclick="nextSlide()">&#10095;</button>
         </div>
     </section>
+    <div class="section">
+        <div class="section-content">
+            <h2>Com o TPKeeper</h2>
+            <p>Você pode gerenciar sua própria campanha de RPG!<br>
+               Guarde suas anotações, fichas de monstros, personagens, rode e crie dados com um simples clique.</p>
+            <button style="background-color: orange; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Crie sua campanha</button>
+        </div>
+        <div class="section-image">
+            <img src="icon/botons.png" alt="Imagem de referência">
+        </div>
+    </div>
     <script>
         let index = 0;
         const slides = document.querySelectorAll(".carousel img");
