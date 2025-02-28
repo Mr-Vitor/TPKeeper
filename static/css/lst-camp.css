@@ -3,10 +3,10 @@
     display: block;
     margin: 20px auto;
     padding: 15px 30px;
-    background-color: orange;
+    background-color: #f97625;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 30px;
     font-size: 18px;
     cursor: pointer;
 }
@@ -27,7 +27,7 @@
     display: block;
     width: 50%;  /* Ajuste para ficar proporcional ao botão */
     height: 3px;
-    background-color: orange;
+    background-color: #ff8c00;
     margin: 10px auto 0;
 }
 
@@ -94,12 +94,17 @@
 
 /* Botão Acessar */
 .btn-acessar {
-    background-color: orange;
+    background-color: #f97625;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.btn-acessar button{
     color: whitesmoke;
     padding: 8px 12px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
     font-size: 14px;
 }
 

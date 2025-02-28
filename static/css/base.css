@@ -63,7 +63,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #ff961b;
+    color: #ff8c00;
 }
 
 /* Ícone do perfil */
@@ -132,7 +132,7 @@ body {
 }
 
 .perfil-menu button:hover {
-    background-color: #ff7300; /* Um tom mais claro no hover */
+    background-color: #ff8c00; /* Um tom mais claro no hover */
 }
 
 /* Logo */
@@ -144,12 +144,14 @@ body {
 /* Botões do topo */
 .buttons {
     margin: 20px 0;
+    width: auto;
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
 .tab {
+    flex-shrink: 0;
     background: #f97625;
     border: none;
     padding: 15px 30px;
@@ -161,11 +163,11 @@ body {
 }
 
 .tab:hover {
-    background: #fa6000;
+    background: #ff8c00;
 }
 
 .tab.active {
-    background: #fa6000;
+    background: #ff8c00;
 }
 
 /* Linha Laranja abaixo do botão */
