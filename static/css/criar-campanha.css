@@ -14,7 +14,7 @@ form {
     text-align: left;
     width: 400px;
 }
-.form-container input, .form-container textarea {
+.form-container input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -22,19 +22,40 @@ form {
     border: none;
     color: white;
 }
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #666;
+    border: none;
+    color: white;
+    resize: vertical;
+}
 .form-container button {
     padding: 10px 20px;
     margin: 5px;
     border: none;
     cursor: pointer;
+    border-radius: 15px;
 }
+.form-container #buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+}
+
 .cancel {
     background-color: #ccc;
-    color: black;
+    color: #ff6600;
+    width: 150px;
+    height: 35px;
 }
 .save {
     background-color: #ff6600;
     color: white;
+    width: 150px;
+    height: 35px;
 }
 .upload-box {
     width: 200px;
