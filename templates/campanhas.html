@@ -15,10 +15,10 @@
 <main class="container">
     <div class="btn-container">
         <a href="{{ url_for('Campanha.criar' ) }}" style="text-decoration: none;"><button id="btn-nova-campanha">Criar nova campanha</button></a>
-    </div>        
+    </div>
+    <div class="campanhas-container" id="campanhas">        
     {% if campanhas %}
         {% for campanha in campanhas %}
-            <div class="campanhas-container" id="campanhas">
                 <div class="campanha">
                     <div class="campanha-imagem">
                         <img src="{{ url_for('Campanha.get_campanha_imagem', id=campanha.id) }}" alt="{{campanha.imagem_nome}}">
@@ -30,10 +30,9 @@
                         <a href="{{ url_for('Campanha.excluir', id =campanha.id ) }}"><button class="btn-deletar">🗑</button></a>
                     </div>
                 </div>
-            </div>
         {% endfor %}
     {% endif %}
-        
+    </div>    
 </main>
 {% endblock %}
 
