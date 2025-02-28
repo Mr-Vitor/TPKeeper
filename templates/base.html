@@ -7,7 +7,7 @@
     <title>{% block title %}Minha Aplicação{% endblock %}</title>
 
     <!-- CSS padrão das páginas (o que tem a navbar)-->
-    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 
     {% block css %}{% endblock %}
 
@@ -16,14 +16,14 @@
 <body>
     <nav class="navbar">
         <div class="logo"> 
-            <img src="logo.png" alt="TPKeeper"> 
+            <img src="{{ url_for('static', filename='icon/logo.png' ) }}" alt="TPKeeper"> 
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Campanhas</a></li>
+            <li><a href="{{ url_for('index' ) }}">Home</a></li>
+            <li><a href="{{ url_for('Campanha.campanha' ) }}">Campanhas</a></li>
         </ul>
         <div class="perfil">
-            <img src="perfil.png" alt="Perfil">
+            <img src="{{ url_for('static', filename='icon/perfil.png' ) }}" alt="Perfil">
         </div>
     </nav>
 

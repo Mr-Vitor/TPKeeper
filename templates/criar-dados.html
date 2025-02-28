@@ -3,27 +3,29 @@
 {% block title %}Novo dado{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static/css', filename='criar-dados.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/criar-dados.css') }}">
 {% endblock %}
     
 {% block content %}
     <div class="btn-container">
         <div class="buttons">
-            <button class="tab active">Anotações</button>
-            <button class="tab">Dados</button>
-            <button class="tab">Editar Campanha</button>
+            <a href="{{ url_for('Campanha.acesso', campanha_id=campanha_id ) }}"><button class="tab">Anotações</button></a>
+            <a href="{{ url_for('Campanha.dados', campanha_id=campanha_id ) }}"><button class="tab active">Dados</button></a>
+            <a href="{{ url_for('Campanha.edit_camp', campanha_id=campanha_id ) }}"><button class="tab">Editar Campanha</button></a>
         </div>
     </div>
-    <div class="container">
-        <label for="nome">Nome do dado:</label>
-        <input type="text" id="nome" name="nome">
-        
-        <label for="faces">Nº de faces:</label>
-        <input type="number" id="faces" name="faces" min="1" max="100" value="0">
-        
-        <div class="button">
-            <button class="btn cancel">Cancelar</button>
-            <button class="btn save">Salvar</button>
-        </div>
+    <div>
+        <form action="{{ url_for('Campanha.criar_dados', campanha_id = campanha_id ) }}" method="POST" class="container">
+            <label for="nome">Nome do dado:</label>
+            <input type="text" id="nome" name="nome">
+            
+            <label for="faces">Nº de faces:</label>
+            <input type="number" id="faces" name="faces" min="1" max="100" value="0">
+            
+            <div class="button">
+                <a href="{{ url_for('Campanha.criar_dados', campanha_id=campanha_id ) }}"><button class="btn cancel">Cancelar</button></a>
+                <button class="btn save">Salvar</button>
+            </div>
+        </form>
     </div>
 {% endblock %}

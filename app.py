@@ -21,7 +21,7 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return Mestre.get(user_id)
+    return Mestre.query.get(int(user_id))
 
 @app.route('/')
 def index():

@@ -19,6 +19,9 @@ class Mestre(db.Model, UserMixin):
     
     campanhas: Mapped[list["Campanha"]] = relationship("Campanha", back_populates="mestre", cascade="all, delete")
 
+
+    
+
 class Campanha(db.Model):
     __tablename__ = 'campanhas'
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
@@ -26,8 +29,8 @@ class Campanha(db.Model):
     nome: Mapped[str] = mapped_column(db.String(150), nullable=False)
     desc: Mapped[str] = mapped_column(db.String(1000))
     data_criacao: Mapped[datetime] = mapped_column(db.DateTime, default=datetime.utcnow)
-    imagem: Mapped[LargeBinary] = mapped_column(db.LargeBinary)
-    imagem_nome: Mapped[str] = mapped_column(db.String(150))
+    imagem: Mapped[LargeBinary] = mapped_column(db.LargeBinary, nullable=True)
+    imagem_nome: Mapped[str] = mapped_column(db.String(150), nullable=True)
     
     mestre: Mapped["Mestre"] = relationship("Mestre", back_populates="campanhas")
     anotacoes: Mapped[list["Anotacao"]] = relationship("Anotacao", back_populates="campanha", cascade="all, delete")
@@ -49,7 +52,6 @@ class Dado(db.Model):
     campanha_id: Mapped[int] = mapped_column(db.Integer, ForeignKey('campanhas.id'), nullable=False)
     nome: Mapped[str] = mapped_column(db.String(50), nullable=False)
     quantidade_faces: Mapped[int] = mapped_column(db.Integer, nullable=False)
-    modificador: Mapped[int] = mapped_column(db.Integer, default=0)
     
     campanha: Mapped["Campanha"] = relationship("Campanha", back_populates="dados")
 

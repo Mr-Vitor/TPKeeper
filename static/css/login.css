@@ -12,7 +12,7 @@
             --button-hover: rgb(255, 128, 10);
         }
 
-        .cadastro-container {
+        .login-container {
             width: 400px;
             background-color: var(--container);
             padding: 40px;
@@ -21,14 +21,14 @@
             text-align: center;
         }
 
-        .cadastro-container img {
-            width: 100px;
-            height: 100px;
+        .login-container img {
+            width: 102.4px;
+            height: 57.5px;
             border-radius: 50%;
             margin-bottom: 10px;
         }
 
-        .cadastro-container h2 {
+        .login-container h2 {
             color: var(--laranja-titulo);
             margin-bottom: 20px;
         }
@@ -54,11 +54,7 @@
             font-size: 16px;
         }
 
-        input::placeholder {
-            color: var(--placeholder);
-        }
-
-        .cadastro-btn {
+        .login-btn {
             width: 100%;
             padding: 10px;
             background-color: var(--laranja-button);
@@ -68,22 +64,23 @@
             font-size: 18px;
             cursor: pointer;
             margin-top: 15px;
-            transition: 300ms;
+            transition:300ms;
         }
 
-        .cadastro-btn:hover {
-            background-color: var(--button-hover);
-        }
-
-        .login-link {
+        .register-link {
             margin-top: 15px;
             font-size: 14px;
         }
 
-        .login-link a {
+        .register-link a {
             color: var(--laranja-button);
+            transition:300ms;
         }
 
-        .login-link a:hover {
-            color:var(--button-hover);
+        .login-btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        .register-link a:hover {
+            color: var(--button-hover);
         }

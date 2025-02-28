@@ -12,11 +12,14 @@ def login():
         email = request.form["email"]
         senha = request.form["senha"]
         
-        mestres = db.session.execute(db.select(Mestre)).scalars()
-        if email not in mestres.email:
-            mestre = db.session.execute(db.select(Mestre).where(Mestre.email == email)).fetchone()
-            if mestre.senha == senha:
+        mestres = db.session.execute(db.select(Mestre.email)).scalars()
+        if email in mestres:
+            mestre = db.session.execute(db.select(Mestre.senha).where(Mestre.email == email)).scalar()
+            if mestre == senha:
+                mestre = db.session.execute(db.select(Mestre).where(Mestre.email == email)).scalar()
                 login_user(mestre)
+        else:
+            return render_template("cadastrar.html")
         return redirect(url_for("Campanha.campanha"))
     else:
         return render_template("login.html")
@@ -29,11 +32,13 @@ def cadastrar():
         email = request.form["email"]
         senha = request.form["senha"]
         mestre = Mestre(nome = nome, email = email, senha = senha)
-        mestres = db.session.execute(db.select(Mestre)).scalars()
-        if mestre.email not in mestres.email:
+        mestres = db.session.execute(db.select(Mestre.email)).all()
+
+        if mestre.email not in mestres:
             db.session.add(mestre)
             db.session.commit()
-            return redirect(url_for("Campanha.campanhas"))
+            login_user(mestre)
+            return redirect(url_for("Campanha.campanha"))
         else:
             return redirect(url_for("Mestre.login"))
     else:

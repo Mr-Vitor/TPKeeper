@@ -3,31 +3,35 @@
 {% block title %}Rolagem de Dados{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static/css', filename='rolar-dados.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rolar-dados.css') }}">
 {% endblock %}
 
 
 {% block content %}
     <div class="btn-container">
         <div class="buttons">
-            <button class="tab active">Anotações</button>
-            <button class="tab">Dados</button>
-            <button class="tab">Editar Campanha</button>
+            <a href="{{ url_for('Campanha.acesso', campanha_id=campanha_id ) }}"><button class="tab">Anotações</button></a>
+            <a href="{{ url_for('Campanha.dados', campanha_id=campanha_id ) }}"><button class="tab active">Dados</button></a>
+            <a href="{{ url_for('Campanha.edit_camp', campanha_id=campanha_id ) }}"><button class="tab">Editar Campanha</button></a>
         </div>
     </div>
     <div class="container">
         <div class="dice-section">
-            <div class="dice-card"><span class="delete-icon">🗑️</span><p>d4</p><button class="roll-button">Rolar dado</button></div>
-            <div class="dice-card"><span class="delete-icon">🗑️</span><p>d6</p><button class="roll-button">Rolar dado</button></div>
-            <div class="dice-card"><span class="delete-icon">🗑️</span><p>d8</p><button class="roll-button">Rolar dado</button></div>
-            <div class="dice-card"><span class="delete-icon">🗑️</span><p>d10</p><button class="roll-button">Rolar dado</button></div>
-            <div class="dice-card"><span class="delete-icon">🗑️</span><p>d12</p><button class="roll-button">Rolar dado</button></div>
-            <div class="dice-card"><span class="delete-icon">🗑️</span><p>d20</p><button class="roll-button">Rolar dado</button></div>
+            {% for dado in dados %}
+            
+        
+            <div class="dice-section">
+                <div class="dice-card">
+                    <span class="delete-icon"><a href="{{ url_for('Campanha.delete_dado', dado_id = dado.id, campanha_id = campanha_id ) }}">🗑️</a></span>
+                    <p>d{{dado.quantidade_faces}}</p>
+                    <button class="roll-button">Rolar dado</button>
+                </div>
+            </div>
+        {% endfor %}
         </div>
         <div class="history">
             <h3>Histórico:</h3>
-            <div class="history-item"><span>20</span> <span>Nd20 + x</span></div>
-            <div class="history-item"><span>14</span> <span>Nd12 + x</span></div>
+            
         </div>
     </div>
     <div class="divider"></div>
@@ -37,11 +41,96 @@
             <span>1d</span>
             <button>+</button>
         </div>
-        <img src="dado.png" alt="Dado" class="dice-image">
+        <a href="{{ url_for('Campanha.criar_dados', campanha_id = campanha_id ) }}"><img src="{{ url_for('static', filename='icon/dado.png' ) }}" alt="Dado" class="dice-image"></a>
         <div class="control-box">
             <button>-</button>
             <span>+0</span>
             <button>+</button>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rollButtons = document.querySelectorAll(".roll-button");
+            const diceCountSpan = document.querySelectorAll(".control-box span")[0];
+            const modifierSpan = document.querySelectorAll(".control-box span")[1];
+            const historyContainer = document.querySelector(".history");
+
+            rollButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    const diceCard = button.closest(".dice-card");
+                    const diceType = parseInt(diceCard.querySelector("p").innerText.replace("d", ""));
+                    const diceCount = parseInt(diceCountSpan.innerText.replace("d", ""));
+                    const modifier = parseInt(modifierSpan.innerText.replace("+", ""));
+
+                    let total = 0;
+                    let rolls = [];
+
+                    for (let i = 0; i < diceCount; i++) {
+                        let roll = Math.floor(Math.random() * diceType) + 1;
+                        rolls.push(roll);
+                        total += roll;
+                    }
+
+                    total += modifier;
+                    
+                    const historyItem = document.createElement("div");
+                    historyItem.classList.add("history-item");
+                    historyItem.innerHTML = `<span class='roll-result' data-tooltip='Rolagens: ${rolls.join(", ")}, Modificador: ${modifier}'>${total}</span> <span>${diceCount}d${diceType} + ${modifier}</span>`;
+                    
+                    historyContainer.appendChild(historyItem);
+                });
+            });
+
+            document.querySelectorAll(".control-box button").forEach(button => {
+                button.addEventListener("click", function () {
+                    const isModifier = this.parentElement === modifierSpan.parentElement;
+                    let valueSpan = isModifier ? modifierSpan : diceCountSpan;
+                    let value = parseInt(valueSpan.innerText.replace("d", "").replace("+", ""));
+
+                    if (this.innerText === "-") {
+                        value = Math.max(1, value - 1);
+                    } else {
+                        value += 1;
+                    }
+                    
+                    valueSpan.innerText = isModifier ? `+${value}` : `${value}d`;
+                });
+            });
+
+            // Adiciona estilo para o tooltip
+            const style = document.createElement("style");
+            style.innerHTML = `
+                .roll-result {
+                    position: relative;
+                    cursor: pointer;
+                }
+                .roll-result::after {
+                    content: attr(data-tooltip);
+                    position: absolute;
+                    background: rgba(0, 0, 0, 0.75);
+                    color: white;
+                    padding: 5px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    bottom: 125%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    white-space: nowrap;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    pointer-events: none;
+                    z-index: 10;
+                }
+                .roll-result:hover::after {
+                    opacity: 1;
+                }
+                .history {
+                    overflow: visible;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+    </script>
 {% endblock %}

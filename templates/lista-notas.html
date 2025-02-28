@@ -3,7 +3,7 @@
 {% block title %}Notas - TPKeeper{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='lst-nota.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lst-nota.css') }}">
 {% endblock %}
 {% block javascript%}
     <script defer src="static/js/lst-nota-teste.js"></script>
@@ -14,30 +14,31 @@
         <!-- Botões do topo -->
         <div class="btn-container">
             <div class="buttons">
-                <button class="tab active">Anotações</button>
-                <button class="tab">Dados</button>
-                <button class="tab">Editar Campanha</button>
+                <a href="{{ url_for('Campanha.acesso', campanha_id=campanha_id ) }}"><button class="tab active">Anotações</button></a>
+                <a href="{{ url_for('Campanha.dados', campanha_id=campanha_id ) }}"><button class="tab">Dados</button></a>
+                <a href="{{ url_for('Campanha.edit_camp', campanha_id=campanha_id ) }}"><button class="tab">Editar Campanha</button></a>
             </div>
         </div>
 
         <!-- Exemplo de como a nota tem que ficar -->
-        <section class="notes-container">
-            <div class="note">
-                <div class="note-text">
-                    <h3>Título da nota</h3>
-                    <p>Data de criação: dd/mm/aaaa</p>
+        {% for anotacao in anotacoes %}
+            <section class="notes-container">
+                <div class="note">
+                    <div class="note-text">
+                        <h3>{{anotacao.nome}}</h3>
+                        <p>{{anotacao.data_criacao}}</p>
+                    </div>
+                    <div class="note-buttons">
+                        <a href="{{ url_for('Campanha.delete_note', anotacao_id=anotacao.id, campanha_id=campanha_id ) }}"><button class="delete-btn">🗑</button></a>
+                        <a href="{{ url_for('Campanha.view', anotacao_id=anotacao.id, campanha_id=campanha_id ) }}"><button class="view">Visualizar nota</button></a>
+                        <a href="{{ url_for('Campanha.edit', anotacao_id=anotacao.id, campanha_id=campanha_id ) }}"><button class="edit">Editar nota</button></a>
+                    </div>
                 </div>
-                <div class="note-buttons">
-                    <button class="delete-btn">🗑</button>
-                    <button class="view">Visualizar nota</button>
-                    <button class="edit">Editar nota</button>
-                </div>
-            </div>
-        
+        {% endfor %}
         
             <!-- Botão de adicionar dentro do grid -->
              <div class="container-button">
-                <button class="add-note">+</button>
+                <a href="{{ url_for('Campanha.add_note', campanha_id=campanha_id ) }}" style="text-decoration: none;"><button class="add-note">+</button></a>
              </div>
 
         </section>

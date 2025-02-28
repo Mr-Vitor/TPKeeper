@@ -3,31 +3,33 @@
 {% block title %}Campanhas{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static/css', filename='criar-campanha.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/criar-campanha.css') }}">
 {% endblock %}
 
 {% block content %}
     <div class="btn-container">
         <div class="buttons">
-            <button class="tab active">Anotações</button>
+            <button class="tab">Anotações</button>
             <button class="tab">Dados</button>
             <button class="tab">Editar Campanha</button>
         </div>
     </div>
     <div class="container">
-        <div class="upload-box">
-            <label for="upload">Arraste e solte ou faça upload</label>
-            <input type="file" id="upload">
-        </div>
-        <div class="form-container">
-            <label for="nome">Nome da campanha:</label>
-            <input type="text" id="nome" placeholder="Nome da campanha">
-            
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" placeholder="Descrição da campanha"></textarea>
-            
-            <button class="cancel">Cancelar</button>
-            <button class="save">Salvar</button>
-        </div>
+        <form action="{{ url_for('Campanha.criar' ) }}" method="post"enctype="multipart/form-data">
+            <div class="upload-box">
+                <label for="upload">Arraste e solte ou faça upload</label>
+                <input type="file" id="upload" name="imagem">
+            </div>
+            <div class="form-container">
+                <label for="nome">Nome da campanha:</label>
+                <input type="text" id="nome" placeholder="Nome da campanha" name="nome">
+                
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" placeholder="Descrição da campanha" name="desc"></textarea>
+                
+                <a href="{{ url_for('Campanha.campanha' ) }}"><button class="cancel">Cancelar</button></a>
+                <button class="save">Salvar</button>
+            </div>
+        </form>
     </div>
 {% endblock %}

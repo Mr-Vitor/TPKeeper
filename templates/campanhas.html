@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title%}Campanhas - TPKeeper{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lst-camp.css') }}">
+{% endblock %}
+
+{% block javascript %}
+<script defer src="static/js/lst-camp-teste.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<main class="container">
+    <div class="btn-container">
+        <a href="{{ url_for('Campanha.criar' ) }}" style="text-decoration: none;"><button id="btn-nova-campanha">Criar nova campanha</button></a>
+    </div>        
+    {% if campanhas %}
+        {% for campanha in campanhas %}
+            <div class="campanhas-container" id="campanhas">
+                <div class="campanha">
+                    <div class="campanha-imagem">
+                        <img src="{{ url_for('Campanha.get_campanha_imagem', id=campanha.id) }}" alt="{{campanha.imagem_nome}}">
+                    </div>
+                    <div class="campanha-conteudo">
+                        <h3>{{campanha.nome}}</h3>
+                        <p>Data de Criação: {{campanha.data_criacao}}</p>
+                        <a href="{{ url_for('Campanha.acesso', campanha_id=campanha.id ) }}"class="btn-acessar"><button style="background-color: transparent; border: none;">Acessar Campanha</button></a>
+                        <a href="{{ url_for('Campanha.excluir', id =campanha.id ) }}"><button class="btn-deletar">🗑</button></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+        
+</main>
+{% endblock %}
+

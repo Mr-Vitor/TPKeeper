@@ -3,7 +3,7 @@
 {% block title %}Editar nota{% endblock %}
  
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static/css', filename='editar-notas.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editar-notas.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -15,17 +15,19 @@
         </div>
     </div>
     <div class="criar-notas-container">
-        <div class="input-group">
-            <label for="titulo">Título da nota:</label>
-            <input type="text" id="titulo" placeholder="{Título_atual}">
-        </div>
-        <div class="input-group">
-            <label for="descricao">Descrição:</label>
-            <input type="text" id="descricao" placeholder="{Descricao_atual}">
-        </div>
-        <div class="botoes">
-            <button class="cancelar-btn">Cancelar</button>
-            <button class="salvar-btn">Salvar</button>
-        </div>
+        <form action="{{ url_for('Campanha.edit', campanha_id = campanha_id, anotacao_id=nota.id ) }}" method="POST">
+            <div class="input-group">
+                <label for="titulo">Título da nota:</label>
+                <input type="text" id="titulo" value="{{nota.nome}}" name="nome">
+            </div>
+            <div class="input-group">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" value="{{nota.descricao}}" name="descricao">
+            </div>
+            <div class="botoes">
+                <a href="{{ url_for('Campanha.acesso', campanha_id = campanha_id ) }}"><button class="cancelar-btn">Cancelar</button></a>
+                <button class="salvar-btn">Salvar</button>
+            </div>
+        </form>
     </div>
 {% endblock %}

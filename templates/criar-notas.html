@@ -3,29 +3,31 @@
 {% block title %}Criar notas{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static/css', filename='criar-notas.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/criar-notas.css') }}">
 {% endblock %}
 
 {% block content %}
     <div class="btn-container">
         <div class="buttons">
-            <button class="tab active">Anotações</button>
-            <button class="tab">Dados</button>
-            <button class="tab">Editar Campanha</button>
+            <a href="{{ url_for('Campanha.acesso', campanha_id=campanha_id ) }}"><button class="tab active">Anotações</button></a>
+            <a href="{{ url_for('Campanha.dados', campanha_id=campanha_id ) }}"><button class="tab">Dados</button></a>
+            <a href="{{ url_for('Campanha.edit_camp', campanha_id=campanha_id ) }}"><button class="tab">Editar Campanha</button></a>
         </div>
     </div>
     <div class="criar-notas-container">
-        <div class="input-group">
-            <label for="titulo">Título da nota:</label>
-            <input type="text" id="titulo" placeholder="{Título_atual}">
-        </div>
-        <div class="input-group">
-            <label for="descricao">Descrição:</label>
-            <input type="text" id="descricao" placeholder="{Descricao_atual}">
-        </div>
-        <div class="botoes">
-            <button class="cancelar-btn">Cancelar</button>
-            <button class="salvar-btn">Salvar</button>
-        </div>
+        <form action="{{ url_for('Campanha.add_note', campanha_id = campanha_id ) }}" method="POST">
+            <div class="input-group">
+                <label for="titulo">Título da nota:</label>
+                <input type="text" id="titulo" name="nome">
+            </div>
+            <div class="input-group">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao">
+            </div>
+            <div class="botoes">
+                <a href="{{ url_for('Campanha.acesso', campanha_id = campanha_id ) }}"><button class="cancelar-btn">Cancelar</button></a>
+                <button class="salvar-btn">Salvar</button>
+            </div>
+        </form>
     </div>
 {% endblock %}

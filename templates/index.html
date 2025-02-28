@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static/css', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 {% endblock %}
 
     {% block title %}TPKeeper{% endblock %}
     
     {% block content %}
     <section class="carousel">
-        <img src="icon/carrossel1.png" alt="Aventura Fantástica">
-        <img src="icon/carrossel1.png" alt="Exploração Mágica">
-        <img src="icon/carrossel1.png" alt="Missão Épica">
+        <img src="{{ url_for('static', filename='icon/carrossel1.png' ) }}" alt="Aventura Fantástica">
+        <img src="{{ url_for('static', filename='icon/carrossel1.png' ) }}" alt="Exploração Mágica">
+        <img src="{{ url_for('static', filename='icon/carrossel1.png' ) }}" alt="Missão Épica">
         <div class="carousel-buttons">
             <button onclick="prevSlide()">&#10094;</button>
             <button onclick="nextSlide()">&#10095;</button>
@@ -21,10 +21,10 @@
             <h2>Com o TPKeeper</h2>
             <p>Você pode gerenciar sua própria campanha de RPG!<br>
                Guarde suas anotações, fichas de monstros, personagens, rode e crie dados com um simples clique.</p>
-            <button style="background-color: orange; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Crie sua campanha</button>
+            <a href="{{ url_for('Campanha.campanha' ) }}"><button style="background-color: orange; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Crie sua campanha</button></a>
         </div>
         <div class="section-image">
-            <img src="icon/botons.png" alt="Imagem de referência">
+            <img src="{{ url_for('static', filename='icon/botons.png' ) }}" alt="Imagem de referência">
         </div>
     </div>
     <script>

@@ -3,26 +3,26 @@
 {% block title %}Ler nota{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static/css', filename='ler-notas.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ler-notas.css') }}">
 {% endblock %}
 
 {% block content %}
     <div class="btn-container">
         <div class="buttons">
-            <button class="tab active">Anotações</button>
-            <button class="tab">Dados</button>
-            <button class="tab">Editar Campanha</button>
+            <a href="{{ url_for('Campanha.acesso', campanha_id=campanha_id ) }}"><button class="tab active">Anotações</button></a>
+            <a href="{{ url_for('Campanha.dados', campanha_id=campanha_id ) }}"><button class="tab">Dados</button></a>
+            <a href="{{ url_for('Campanha.edit_camp', campanha_id=campanha_id ) }}"><button class="tab">Editar Campanha</button></a>
         </div>
     </div>
     <div class="botao">
-        <button class="voltar-btn">Voltar</button>
+        <a href="{{ url_for('Campanha.acesso', campanha_id=campanha_id ) }}"><button class="voltar-btn">Voltar</button></a>
     </div>
     <div class="ler-notas-container">
         <div class="label-group">
-            <label type="text" id="ler-nota" placeholder="titulo" class="titulo"></label>
+            <label id="ler-nota" class="titulo">{{nota.nome}}</label>
         </div>
         <div class="label-group">
-            <label class="conteudo" type="text" id="ler-nota" placeholder="descricao da nota"></label>
+            <label class="conteudo" id="ler-nota">{{nota.descricao}}</label>
         </div>
     </div>
 {% endblock %}
