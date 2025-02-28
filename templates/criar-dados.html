@@ -14,7 +14,7 @@
             <a href="{{ url_for('Campanha.edit_camp', campanha_id=campanha_id ) }}"><button class="tab">Editar Campanha</button></a>
         </div>
     </div>
-    <div>
+    <div class="dados">
         <form action="{{ url_for('Campanha.criar_dados', campanha_id = campanha_id ) }}" method="POST" class="container">
             <label for="nome">Nome do dado:</label>
             <input type="text" id="nome" name="nome">

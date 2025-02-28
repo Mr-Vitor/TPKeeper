@@ -6,29 +6,71 @@
 
     <title>{% block title %}Minha Aplicação{% endblock %}</title>
 
-    <!-- CSS padrão das páginas (o que tem a navbar)-->
+    <!-- CSS padrão das páginas -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 
     {% block css %}{% endblock %}
-
-    {% block javascript %}{% endblock %}
 </head>
 <body>
     <nav class="navbar">
         <div class="logo"> 
-            <img src="{{ url_for('static', filename='icon/logo.png' ) }}" alt="TPKeeper"> 
+            <button id="landing-page"><img src="{{ url_for('static', filename='icon/logo.png' ) }}" alt="TPKeeper"></button> 
         </div>
         <ul class="nav-links">
             <li><a href="{{ url_for('index' ) }}">Home</a></li>
             <li><a href="{{ url_for('Campanha.campanha' ) }}">Campanhas</a></li>
         </ul>
         <div class="perfil">
-            <img src="{{ url_for('static', filename='icon/perfil.png' ) }}" alt="Perfil">
+            <img src="{{ url_for('static', filename='icon/perfil.png' ) }}" alt="Perfil" id="perfil-btn">
+            <div class="perfil-menu" id="perfil-menu">
+            {% if current_user.is_authenticated %}
+                <button id="logout-btn">Logout</button>
+            {% endif %}
+            </div>
         </div>
     </nav>
 
     {% block content %}{% endblock %}
 
+    <!-- Script do menu sanduíche -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const perfilBtn = document.getElementById("perfil-btn");
+            const perfilMenu = document.getElementById("perfil-menu");
+            const logoutBtn = document.getElementById("logout-btn");
+            const tpkBtn = document.getElementById("landing-page")
+    
+            // Abrir e fechar o menu ao clicar no ícone do perfil
+            perfilBtn?.addEventListener("click", function (event) {
+                event.stopPropagation(); // Evita que o clique feche imediatamente
+                perfilMenu.classList.toggle("active");
+            });
+    
+            // Fechar o menu ao clicar fora dele
+            document.addEventListener("click", function (event) {
+                if (perfilMenu && !perfilMenu.contains(event.target) && event.target !== perfilBtn) {
+                    perfilMenu.classList.remove("active");
+                }
+            });
+    
+                if (logoutBtn) { // Verifica se o botão de logout existe antes de adicionar o evento
+                    logoutBtn.addEventListener("click", function () {
+                        if (confirm("Tem certeza que deseja sair?")) {
+                            window.location.href = "{{ url_for('Mestre.logout') }}";
+                        }
+                    });
+                }
+            document.addEventListener("click", function (event) {
+                tpkBtn.addEventListener("click", function () {
+                    window.location.href = "{{ url_for('index') }}"
+                }
+                )    
+            });
+        });
+    </script>
+    
+    
 
 </body>
 </html>
+
