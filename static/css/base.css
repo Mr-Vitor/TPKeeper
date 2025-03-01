@@ -188,6 +188,17 @@ body {
     margin: 10px auto 0;
 }
 
+.flash {
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bold;
+}
+.error {
+    color: #cc0000;
+}
+
 /* Para tablets e telas menores (máx. 768px) */
 @media (max-width: 768px) {
     .navbar {
@@ -287,3 +298,5 @@ body {
         width: 50%;
     }
 }
+
+

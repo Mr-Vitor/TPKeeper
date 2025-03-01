@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, request, render_template, url_for
+from flask import Blueprint, redirect, request, render_template, url_for, flash
 from models.config import db, Mestre
 from flask_login import login_user, login_required, logout_user
 
@@ -32,7 +32,7 @@ def cadastrar():
         email = request.form["email"]
         senha = request.form["senha"]
         mestre = Mestre(nome = nome, email = email, senha = senha)
-        mestres = db.session.execute(db.select(Mestre.email)).all()
+        mestres = [row[0] for row in db.session.execute(db.select(Mestre.email)).all()]
 
         if mestre.email not in mestres:
             db.session.add(mestre)
@@ -40,7 +40,8 @@ def cadastrar():
             login_user(mestre)
             return redirect(url_for("Campanha.campanha"))
         else:
-            return redirect(url_for("Mestre.login"))
+            flash("Esse E-mail já foi cadastrado anteriormente", "error")
+            return redirect(url_for("Mestre.cadastrar"))
     else:
         return render_template("cadastrar.html")
     

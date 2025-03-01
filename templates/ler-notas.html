@@ -22,7 +22,7 @@
             <h3>{{nota.nome}}</h3>
         </div>
         <div class="label-group">
-            <p class="conteudo" id="ler-nota">{{nota.descricao}}</p>
+            <p class="conteudo" id="ler-nota">{{nota.descricao | replace("\n", "<br>") | safe }}</p>
         </div>
     </div>
 {% endblock %}

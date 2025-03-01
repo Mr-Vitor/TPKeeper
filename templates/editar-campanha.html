@@ -27,7 +27,7 @@
                 <label for="descricao">Descrição:</label>
                 <textarea id="descricao" name="desc">{{campanha.desc}}</textarea>
                 <div id="buttons">
-                    <a href="{{ url_for('Campanha.acesso', campanha_id=campanha_id ) }}"><button class="cancel">Cancelar</button></a>
+                    <a href="{{ url_for('Campanha.acesso', campanha_id=campanha_id ) }}"><button class="cancel" type="button">Cancelar</button></a>
                     <button class="save">Salvar</button>
                 </div>
             </div>

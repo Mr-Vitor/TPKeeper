@@ -7,6 +7,14 @@
 {% block title %}Cadastro{% endblock %}
 
 {% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% set last_message = messages[-1] %}  <!-- Obtém a última mensagem -->
+            <div class="flash {{ last_message[0] }}">{{ last_message[1] }}</div>
+        {% endif %}
+    {% endwith %}
+
     <div class="cadastro-container">
         <form action="{{ url_for('Mestre.cadastrar' ) }}", method="post">
             <img src="{{ url_for('static', filename='icon/perfil.png' ) }}" alt="User">
