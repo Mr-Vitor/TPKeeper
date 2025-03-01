@@ -20,9 +20,10 @@
             {% for dado in dados %}
             
         
-            <div class="dice-section">
+            <div class="dice-section2">
                 <div class="dice-card">
                     <span class="delete-icon"><a href="{{ url_for('Campanha.delete_dado', dado_id = dado.id, campanha_id = campanha_id ) }}">🗑️</a></span>
+                    <h4>{{dado.nome}}</h4>
                     <p>d{{dado.quantidade_faces}}</p>
                     <button class="roll-button">Rolar dado</button>
                 </div>
