@@ -85,3 +85,70 @@
         .register-link a:hover {
             color: var(--button-hover);
         }
+
+        /* Responsividade para tablets e telas médias (máx. 768px) */
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%; /* Aumenta o tamanho do container */
+        max-width: 450px;
+        padding: 30px;
+        margin: 40px auto;
+    }
+
+    .input-group label {
+        font-size: 14px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .login-btn {
+        width: 80%;
+        font-size: 16px;
+        height: 50px;
+    }
+
+    .register-link {
+        font-size: 13px;
+    }
+}
+
+/* Responsividade para celulares (máx. 480px) */
+@media (max-width: 480px) {
+    .login-container {
+        width: 100%;
+        max-width: 350px;
+        padding: 25px;
+        margin: 30px auto;
+    }
+
+    .login-container img {
+        width: 80px;
+        height: 45px;
+    }
+
+    .login-container h2 {
+        font-size: 20px;
+    }
+
+    .input-group label {
+        font-size: 13px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .login-btn {
+        width: 100%;
+        font-size: 16px;
+        height: 45px;
+    }
+
+    .register-link {
+        font-size: 12px;
+    }
+}

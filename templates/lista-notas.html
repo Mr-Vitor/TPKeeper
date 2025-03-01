@@ -29,7 +29,7 @@
                     <p>{{anotacao.data_criacao}}</p>
                 </div>
                 <div class="note-buttons">
-                    <a href="{{ url_for('Campanha.delete_note', anotacao_id=anotacao.id, campanha_id=campanha_id ) }}"><button class="delete-btn">🗑</button></a>
+                    <a href="{{ url_for('Campanha.delete_note', anotacao_id=anotacao.id, campanha_id=campanha_id ) }}"><button class="delete-btn">🗑️</button></a>
                     <a href="{{ url_for('Campanha.view', anotacao_id=anotacao.id, campanha_id=campanha_id ) }}"><button class="view">Visualizar nota</button></a>
                     <a href="{{ url_for('Campanha.edit', anotacao_id=anotacao.id, campanha_id=campanha_id ) }}"><button class="edit">Editar nota</button></a>
                 </div>

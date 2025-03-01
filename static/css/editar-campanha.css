@@ -5,23 +5,31 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 60px;
 }
 
 .form-container {
     background-color: #3a3a3a;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 25px;
     text-align: left;
-    width: 400px;
+    font-size: large;
+    width: 500px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-evenly;
 }
+
 .form-container input{
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     background-color: #666;
     border: none;
+    border-radius: 15px;
     color: white;
+    font-size: 15px;
 }
 .form-container textarea {
     width: 100%;
@@ -29,8 +37,11 @@
     margin: 10px 0;
     background-color: #666;
     border: none;
+    border-radius: 15px;
     color: white;
     resize: vertical;
+    min-height: 120px;
+    font-size: 15px;
 }
 .form-container button {
     padding: 10px 20px;
@@ -42,42 +53,140 @@
 
 .form-container #buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     height: 50px;
 }
 
+.form-container a {
+    width: 50%
+}
+
 .cancel {
     background-color: #ccc;
-    color: #ff6600;
-    width: 150px;
-    height: 35px;
+    color: #f97625;
+    width: 160px;
+    height: 55px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition:300ms;
+
 }
+
+.cancel:hover{
+    background-color:#bbbbbb ;
+}
+
 .save {
-    background-color: #ff6600;
+    background-color: #f97625;
     color: white;
-    width: 150px;
-    height: 35px;
+    width: 40%;
+    height: 55px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition:300ms;
 }
+
+.save:hover {
+    background-color:#ff8c00;
+}
+
 .upload-box {
     width: 200px;
     height: 200px;
     padding: 20px;
     background-color: #333;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .upload-box input {
     display: none;
+    border-radius: 25px;
 }
 .upload-box label {
     display: block;
     padding: 10px;
-    background-color: #444;
+    background-color: #333;
     color: white;
     cursor: pointer;
     border-radius: 5px;
+}
+
+/* Responsividade para tablets e telas menores (máx. 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Garante que o container ocupe toda a largura */
+        max-width: 600px; /* Mantém um limite para não esticar demais */
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+        gap: 40px;
+        padding: 20px;
+    }
+
+    .form-container {
+        width: 100%; /* Agora ocupa toda a largura do container */
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .form-container input,
+    .form-container textarea {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .form-container #buttons {
+        flex-direction: column;
+        gap: 15px;
+        height: auto;
+    }
+
+    .cancel, .save {
+        width: 100%;
+        height: 55px;
+        font-size: 18px;
+    }
+
+    .upload-box {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+/* Responsividade para celulares pequenos (máx. 480px) */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        max-width: 400px; /* Mantém um limite confortável para telas pequenas */
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-container input,
+    .form-container textarea {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .cancel, .save {
+        font-size: 16px;
+        height: 50px;
+    }
+
+    .upload-box {
+        height: 160px;
+        padding: 12px;
+    }
 }

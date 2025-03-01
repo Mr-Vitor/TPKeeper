@@ -53,3 +53,57 @@ input {
 .save:hover {
     background-color: #fa6000;
 }
+
+/* Responsividade para tablets e telas médias (máx. 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Aumenta o tamanho do container */
+        max-width: 500px;
+        margin-top: 30px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .button {
+        flex-direction: column; /* Empilha os botões */
+        gap: 10px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Responsividade para celulares (máx. 480px) */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .button {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

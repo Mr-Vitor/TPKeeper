@@ -99,6 +99,7 @@
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    align-self: center;
 }
 
 .btn-acessar button{
@@ -106,6 +107,7 @@
     padding: 8px 12px;
     border: none;
     font-size: 14px;
+
 }
 
 .btn-acessar:hover {

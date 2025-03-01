@@ -5,7 +5,7 @@
     background-color: #444;
     padding: 40px;
     border-radius: 15px;
-    margin: 100px auto;
+    margin: 50px auto;
     text-align: center;
 }
 
@@ -25,9 +25,21 @@
     padding: 10px;
     border: none;
     border-radius: 10px;
-    background-color: #555;
+    background-color: #666;
     color: white;
     font-size: 16px;
+}
+
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #666;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    resize: vertical;
+    min-height: 120px;
 }
 
 input::placeholder {
@@ -40,29 +52,36 @@ input::placeholder {
 
 .botoes {
     display: flex;
-    flex-direction: row;
-    gap:15px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.botoes a {
+    width: 35%;
 }
 
 .salvar-btn {
-    width: 50%;
     padding: 10px;
-    background-color: #f97625;
     border: none;
-    border-radius: 10px;
-    color: white;
+    border-radius: 25px;
     font-size: 18px;
     cursor: pointer;
     margin-top: 15px;
+    background-color: #f97625;
+    color: white;
+    width: 35%;
+    height: 55px;
+    transition: 300ms;
 }
 .cancelar-btn {
-    width: 50%;
     padding: 10px;
-    background-color: white;
     border: none;
-    border-radius: 10px;
-    color: #f97625;
+    border-radius: 25px;
     font-size: 18px;
     cursor: pointer;
     margin-top: 15px;
+    background-color: #ccc;
+    color: #f97625;
+    width: 100%;
+    height: 55px;
+    transition: 300ms;
 }

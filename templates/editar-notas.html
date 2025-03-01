@@ -22,7 +22,7 @@
             </div>
             <div class="input-group">
                 <label for="descricao">Descrição:</label>
-                <input type="text" id="descricao" value="{{nota.descricao}}" name="descricao">
+                <textarea id="descricao" name="descricao">{{nota.descricao}}</textarea>
             </div>
             <div class="botoes">
                 <a href="{{ url_for('Campanha.acesso', campanha_id = campanha_id ) }}"><button class="cancelar-btn">Cancelar</button></a>

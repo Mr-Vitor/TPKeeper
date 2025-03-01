@@ -27,7 +27,7 @@
                         <h3>{{campanha.nome}}</h3>
                         <p>Data de Criação: {{campanha.data_criacao}}</p>
                         <a href="{{ url_for('Campanha.acesso', campanha_id=campanha.id ) }}"class="btn-acessar"><button style="background-color: transparent; border: none;">Acessar Campanha</button></a>
-                        <a href="{{ url_for('Campanha.excluir', id =campanha.id ) }}"><button class="btn-deletar">🗑</button></a>
+                        <a href="{{ url_for('Campanha.excluir', id =campanha.id ) }}"><button class="btn-deletar">🗑️</button></a>
                     </div>
                 </div>
         {% endfor %}

@@ -11,19 +11,20 @@
         <img src="{{ url_for('static', filename='icon/carrossel1.png' ) }}" alt="Aventura Fantástica">
         <img src="{{ url_for('static', filename='icon/carrossel2.png' ) }}" alt="Exploração Mágica">
         <img src="{{ url_for('static', filename='icon/carrossel3.png' ) }}" alt="Missão Épica">
-        <img src="{{ url_for('static', filename='icon/carrossel4.png' ) }}">
-        <img src="{{ url_for('static', filename='icon/carrossel5.png' ) }}">
+        <img src="{{ url_for('static', filename='icon/carrossel4.png' ) }}" alt="Mistério Sombrio">
+        <img src="{{ url_for('static', filename='icon/carrossel5.png' ) }}" alt="Desafio Incrível">
         <div class="carousel-buttons">
             <button onclick="prevSlide()">&#10094;</button>
             <button onclick="nextSlide()">&#10095;</button>
         </div>
     </section>
+    <div class="separator"></div>
     <div class="section">
         <div class="section-content">
             <h2>Com o TPKeeper</h2>
             <p>Você pode gerenciar sua própria campanha de RPG!<br>
                Guarde suas anotações, fichas de monstros, personagens, rode e crie dados com um simples clique.</p>
-            <a href="{{ url_for('Campanha.campanha' ) }}"><button style="background-color: orange; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Crie sua campanha</button></a>
+            <a href="{{ url_for('Campanha.campanha' ) }}"><button class="cria-campanha">Crie sua campanha</button></a>
         </div>
         <div class="section-image">
             <img src="{{ url_for('static', filename='icon/botons.png' ) }}" alt="Imagem de referência">

@@ -9,12 +9,16 @@
     margin-top: 10px;
 }
 
+.botao a {
+    height: 55px;
+}
+
 .voltar-btn {
     width: 10rem;
     padding: 10px;
     background-color: #f97625;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -35,22 +39,86 @@
     text-align: left;
 }
 
-.label-group label {
+.label-group h3 {
     width: 100%;
     padding: 10px;
     border: none;
     border-radius: 10px;
     background-color: #555;
     color: white;
-    font-size: 16px;
+    font-size: 22px;
     resize: none;
     overflow-y: hidden;
 }
 
-.titulo::placeholder {
-    font-size: 2rem;
-}
 
 .conteudo {
-    height: 500px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    overflow-y: hidden;
+    padding-left: 5%;
+    padding-right: 5%;
+    min-height: fit-content;
+}
+
+/* Para tablets e telas menores (máx. 768px) */
+@media (max-width: 768px) {
+    .ler-notas-container {
+        width: 90%; /* Ajusta a largura para ocupar mais espaço na tela */
+        padding: 30px;
+        margin: 25px auto;
+    }
+
+    .voltar-btn {
+        width: 8rem; /* Reduz o tamanho do botão */
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .label-group h3 {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .conteudo {
+        font-size: 14px;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}
+
+/* Para celulares pequenos (máx. 480px) */
+@media (max-width: 480px) {
+    .ler-notas-container {
+        width: 95%; /* Mais largura para melhor ajuste */
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .botao {
+        flex-direction: column; /* Botões empilhados */
+        gap: 8px;
+    }
+
+
+    .voltar-btn {
+        width: 100%; /* Botão ocupa toda a largura */
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .label-group h3 {
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    .conteudo {
+        font-size: 14px;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
 }

@@ -40,22 +40,163 @@
     max-width: 600px;
     padding-left: 50px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: space-between;
+    align-content: space-between;
 }
 .section-content h2 {
-    color: orange;
-    font-size: 28px;
+    color: #f97625;
+    font-size: 48px;
 }
 .section-content p {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.5;
+    margin-left: 30px;
 }
 .section-image {
     flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
 }
 .section-image img {
+    width: 80%;
+}
+
+.cria-campanha {
+    background-color: #f97625; 
+    color: white; 
+    min-height: 60px;
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 25px; 
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 140px;
+}
+
+.cria-campanha:hover {
+    background-color: #ff8c00;
+}
+
+.separator {
     width: 100%;
-    border-radius: 10px;
+    height: 3px; /* Altura da linha */
+    background-color: #ff8c00; /* Cor laranja */
+    margin: 0;
+}
+
+/* Para tablets e telas menores (máx. 768px) */
+@media (max-width: 768px) {
+    .carousel {
+        height: 500px;
+    }
+
+    .carousel img {
+        object-fit: contain;
+    }
+
+    .carousel-buttons button {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+
+    .section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .section-content {
+        padding: 0;
+        max-width: 90%;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .section-content h2 {
+        font-size: 36px;
+    }
+
+    .section-content p {
+        font-size: 18px;
+        margin-left: 0;
+    }
+
+    .section-image {
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .section-image img {
+        display: none;
+    }
+
+    .cria-campanha {
+        width: 80%;
+        text-align: center;
+        margin: 20px auto 0;
+        padding: 12px 20px;
+        font-size: 18px;
+    }
+
+    .separator {
+        height: 2px;
+    }
+}
+
+/* Para celulares pequenos (máx. 480px) */
+@media (max-width: 480px) {
+    .carousel {
+        height: 350px;
+    }
+
+    .carousel-buttons button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .section {
+        margin-top: 20px;
+    }
+
+    .section-content {
+        max-width: 100%;
+        gap: 20px;
+    }
+
+    .section-content h2 {
+        font-size: 28px;
+    }
+
+    .section-content p {
+        font-size: 16px;
+    }
+
+    .section-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-image img {
+        display: none;
+    }
+
+    .cria-campanha {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .separator {
+        height: 1.5px;
+    }
 }
