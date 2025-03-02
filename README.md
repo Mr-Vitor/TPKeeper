@@ -37,4 +37,4 @@ O **TPKeeper** é uma ferramenta **feita para os Mestres de Jogo**!
 
 💡 Com uma interface **intuitiva e moderna**, o TPKeeper une **praticidade e diversão**, sendo compatível com qualquer sistema de RPG!
 
-**Aproveite nosso sistema!!**
+**✨ Aproveite o sistema e crie aventuras fantásticas!**
